@@ -7,6 +7,7 @@ import { supabase } from "./createclient";
 import "./createfarm.css";
 import { registerPolygonWithAgro } from "./agromonitoring";
 import Spinner from "./spinner";
+import { toast } from "react-hot-toast";
 
 // Minimal header for this page
 const MinimalHeader = () => (

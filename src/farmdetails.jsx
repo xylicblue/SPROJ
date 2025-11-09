@@ -236,6 +236,7 @@ import {
   getNdviHistoryForPolygon,
   searchSatelliteImages,
 } from "./agromonitoring";
+import { toast } from "react-hot-toast";
 
 // Import Chart.js components
 import { Line } from "react-chartjs-2";
@@ -403,7 +404,8 @@ const FarmDetailsPage = () => {
       .eq("id", milestone.id);
 
     if (error) {
-      alert("Error updating verification: " + error.message);
+      // alert("Error updating verification: " + error.message);
+      toast.error("Error updating verification");
     } else {
       // Update local state for instant UI feedback
       setCycleMilestones((prev) =>
@@ -415,7 +417,8 @@ const FarmDetailsPage = () => {
   };
   const handleStartCycle = async () => {
     if (!selectedCropId) {
-      alert("Please select a crop.");
+      // alert("Please select a crop.");
+      toast.error("No Crop Selected");
       return;
     }
 
@@ -424,10 +427,12 @@ const FarmDetailsPage = () => {
         body: { farm_id: farmId, crop_id: selectedCropId },
       });
       if (error) throw error;
-      alert("Crop cycle started successfully!");
+      // alert("Crop cycle started successfully!");
+      toast.success("Cycle Started Succesfully");
       window.location.reload(); // Easiest way to refresh all data
     } catch (error) {
-      alert("Error starting cycle: " + error.message);
+      // alert("Error starting cycle: " + error.message);
+      toast.error("Error starting cycle");
     }
   };
   const handleStatusChange = async (milestoneId, newStatus) => {
@@ -436,7 +441,8 @@ const FarmDetailsPage = () => {
       .update({ status: newStatus })
       .eq("id", milestoneId);
     if (error) {
-      alert(error.message);
+      // alert(error.message);
+      toast.error(error.message);
     } else {
       // Update local state for instant UI feedback
       setCycleMilestones((prev) =>
