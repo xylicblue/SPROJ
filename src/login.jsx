@@ -4,7 +4,7 @@ import { supabase } from "./createclient";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "./navbar"; // Import the new Navbar component
 import "./login.css";
-
+import { toast } from "react-hot-toast";
 const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
@@ -25,7 +25,8 @@ const LoginPage = () => {
     if (error) {
       setError("Invalid login credentials"); // Set a user-friendly message
     } else {
-      alert("Logged in successfully!");
+      // alert("Logged in successfully!");
+      toast.success("Login Succesful!");
       navigate("/home");
       // navigate('/dashboard');
     }

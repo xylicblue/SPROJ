@@ -12,7 +12,7 @@ import { polygon as turfPolygon } from "@turf/helpers";
 import { useState, useEffect } from "react";
 import { supabase } from "./createclient"; // Import supabase client
 import Spinner from "./spinner";
-
+import { toast } from "react-hot-toast";
 const DashboardPage = () => {
   // State to hold the user's profile and loading status
   const [userProfile, setUserProfile] = useState(null);
@@ -83,7 +83,8 @@ const DashboardPage = () => {
       // Redirect the user to the login page
       navigate("/login");
     } catch (error) {
-      alert(error.message);
+      // alert(error.message);
+      toast.error(error.message);
     }
   };
   // useEffect(() => {

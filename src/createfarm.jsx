@@ -104,7 +104,8 @@ const CreateFarmPage = () => {
 
       if (updateError) throw updateError;
 
-      alert("Farm saved and registered successfully!");
+      // alert("Farm saved and registered successfully!");
+      toast.success("From saved and registered!");
       navigate("/home");
     } catch (error) {
       setError(error.message);
@@ -132,11 +133,13 @@ const CreateFarmPage = () => {
           map.setView([lat, lon], 13); // Fly to the location with zoom level 13
         }
       } else {
-        alert("Location not found. Please try a different search term.");
+        // alert("Location not found. Please try a different search term.");
+        toast.error("Location not found!");
       }
     } catch (error) {
       console.error("Error during geocoding search:", error);
-      alert("Could not perform search. Please check your connection.");
+      // alert("Could not perform search. Please check your connection.");
+      toast.error("Could not peform search");
     }
   };
 
