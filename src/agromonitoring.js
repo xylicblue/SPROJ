@@ -1,7 +1,7 @@
 // src/api/agroMonitoring.js
 
 const API_KEY = import.meta.env.VITE_AGROMONITORING_API_KEY;
-const API_BASE_URL = "http://api.agromonitoring.com/agro/1.0";
+const API_BASE_URL = "https://api.agromonitoring.com/agro/1.0";
 // Function to format our coordinates into GeoJSON
 const formatCoordsToGeoJSON = (coords) => {
   // AgroMonitoring needs [longitude, latitude]
@@ -33,7 +33,7 @@ export const registerPolygonWithAgro = async (farmName, coordinates) => {
     throw new Error("AgroMonitoring API key is not configured.");
   }
 
-  const API_URL = `http://api.agromonitoring.com/agro/1.0/polygons?appid=${apiKey}`;
+  const API_URL = `https://api.agromonitoring.com/agro/1.0/polygons?appid=${apiKey}`;
 
   const geoJson = formatCoordsToGeoJSON(coordinates);
 
