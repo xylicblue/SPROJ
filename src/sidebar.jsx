@@ -2,6 +2,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./sidebar.css";
+import Notifications from "./notifications";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -46,11 +47,18 @@ const Sidebar = () => {
           </Link>
         ))}
       </nav>
+      {/* <div className="sidebar-footer">
+        <Link to="/help" className="nav-item">
+          <span className="material-symbols-outlined">help</span>
+          Help and Support
+        </Link>
+      </div> */}
       <div className="sidebar-footer">
         <Link to="/help" className="nav-item">
           <span className="material-symbols-outlined">help</span>
           Help and Support
         </Link>
+        {/* <Notifications /> Add component here */}
       </div>
     </aside>
   );

@@ -1,0 +1,45 @@
+/* src/components/Header.css */
+.main-header {
+    background-color: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0 2rem;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #4cdf20;
+    color: #1e293b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.user-email {
+    display: block;
+    font-weight: 500;
+    color: #334155;
+}
+.logout-button {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    padding: 0;
+    font-size: 0.875rem;
+}

@@ -5,6 +5,8 @@ import { MapContainer, TileLayer, FeatureGroup } from "react-leaflet";
 import { EditControl } from "react-leaflet-draw";
 import { supabase } from "./createclient";
 import "./createfarm.css";
+import { registerPolygonWithAgro } from "./agromonitoring";
+import Spinner from "./spinner";
 
 // Minimal header for this page
 const MinimalHeader = () => (
@@ -69,26 +71,41 @@ const CreateFarmPage = () => {
 
     setLoading(true);
 
+    setLoading(true);
     try {
-      // Get current user
       const {
         data: { user },
       } = await supabase.auth.getUser();
       if (!user) throw new Error("User not found.");
 
-      // Prepare data for insertion
-      const farmData = {
-        user_id: user.id,
-        name: farmName,
-        location_data: polygonCoords,
-      };
+      // 1. Insert the farm into our database and get the new record back
+      const { data: newFarm, error: insertError } = await supabase
+        .from("farms")
+        .insert([
+          { user_id: user.id, name: farmName, location_data: polygonCoords },
+        ])
+        .select() // IMPORTANT: select() returns the inserted row
+        .single();
 
-      const { error } = await supabase.from("farms").insert([farmData]);
+      if (insertError) throw insertError;
+      if (!newFarm) throw new Error("Failed to create farm in database.");
 
-      if (error) throw error;
+      // 2. Register the polygon with AgroMonitoring
+      const agroId = await registerPolygonWithAgro(
+        newFarm.name,
+        newFarm.location_data
+      );
 
-      alert("Farm saved successfully!");
-      navigate("/home"); // Redirect after saving
+      // 3. Update our farm record with the new AgroMonitoring ID
+      const { error: updateError } = await supabase
+        .from("farms")
+        .update({ agromonitoring_id: agroId })
+        .eq("id", newFarm.id);
+
+      if (updateError) throw updateError;
+
+      alert("Farm saved and registered successfully!");
+      navigate("/home");
     } catch (error) {
       setError(error.message);
       console.error("Error saving farm:", error);
@@ -186,7 +203,7 @@ const CreateFarmPage = () => {
         {error && <p className="error-message-farm">{error}</p>}
       </main>
       <footer className="create-farm-footer">
-        <button className="cancel-btn" onClick={() => navigate("/dashboard")}>
+        <button className="cancel-btn" onClick={() => navigate("/home")}>
           Cancel
         </button>
         <button

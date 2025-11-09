@@ -35,8 +35,6 @@ const Navbar = () => {
             Contact
           </a>
 
-          {/* --- DYNAMIC BUTTON LOGIC --- */}
-          {/* Check if the current path is '/signup' */}
           {location.pathname === "/signup" ? (
             // If it is, show the Log In button
             <Link to="/login" className="signup-btn">

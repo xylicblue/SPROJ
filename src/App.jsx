@@ -2,10 +2,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./login";
 import SignupPage from "./signup";
-import DashboardPage from "./dashboard"; // Import Dashboard
+import DashboardPage from "./fdashboard"; // Import Dashboard
 import ProtectedRoute from "./protected"; // Import ProtectedRoute
 import CreateFarmPage from "./createfarm";
 import UploadKmlPage from "./kmlpage";
+import FarmDetailsPage from "./farmdetails";
+import FarmsPage from "./farms";
+import Dashboard from "./dashboard";
+import AdminDashboardPage from "./admindash";
 function App() {
   return (
     <BrowserRouter>
@@ -18,7 +22,23 @@ function App() {
           path="/home"
           element={
             <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/farmer-dashboard"
+          element={
+            <ProtectedRoute>
               <DashboardPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin-dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminDashboardPage />
             </ProtectedRoute>
           }
         />
@@ -41,6 +61,22 @@ function App() {
 
         {/* Redirect base route to dashboard or login */}
         <Route path="/" element={<LoginPage />} />
+        <Route
+          path="/farm/:farmId"
+          element={
+            <ProtectedRoute>
+              <FarmDetailsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/farms"
+          element={
+            <ProtectedRoute>
+              <FarmsPage />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

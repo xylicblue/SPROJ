@@ -39,7 +39,7 @@ const LoginPage = () => {
         <div className="login-card">
           <div className="card-header">
             <h2 className="card-title">Welcome Back</h2>
-            <p className="card-subtitle">Log in to your AgriPay account.</p>
+            {/* <p className="card-subtitle">Log in to your AgriPay account.</p> */}
           </div>
           <form className="form" onSubmit={handleLogin}>
             <div className="input-group">

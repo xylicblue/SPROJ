@@ -100,9 +100,9 @@ const SignupPage = () => {
         <div className="signup-card">
           <div className="card-header">
             <h2 className="card-title">Create an Account</h2>
-            <p className="card-subtitle">
+            {/* <p className="card-subtitle">
               Join AgriPay today. It's quick and easy.
-            </p>
+            </p> */}
           </div>
 
           <form className="form" onSubmit={handleSignup}>

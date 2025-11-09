@@ -12,9 +12,13 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.75.1",
     "@tmcw/togeojson": "^7.1.2",
+    "@turf/area": "^7.2.0",
+    "@turf/helpers": "^7.2.0",
+    "chart.js": "^4.5.1",
     "leaflet": "^1.9.4",
     "leaflet-draw": "^1.0.4",
     "react": "^19.1.1",
+    "react-chartjs-2": "^5.3.1",
     "react-dom": "^19.1.1",
     "react-dropzone": "^14.3.8",
     "react-leaflet": "^5.0.0",

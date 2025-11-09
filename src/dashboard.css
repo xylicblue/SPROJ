@@ -207,3 +207,154 @@ tbody tr:last-child td {
 .logout-btn:hover {
     background-color: #e5e7eb; /* Slightly darker on hover */
 }
+
+/* Add to src/pages/DashboardPage.css */
+.farms-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+.farm-card-link {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+    text-decoration: none;
+    color: black;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.farm-card-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+.farm-card-link h3 {
+    margin: 0 0 0.5rem 0;
+}
+.farm-card-link p {
+    color: #4cdf20;
+    font-weight: 600;
+}
+/* Add these styles to src/pages/DashboardPage.css */
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.summary-card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summary-card img {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+}
+
+.card-label {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.card-value {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0.25rem 0;
+}
+
+.card-description {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.progress-card { background: #fff; padding: 1.5rem; border-radius: 1rem; }
+.main-progress-bar-container { width: 100%; height: 12px; background: #e2e8f0; border-radius: 99px; overflow: hidden; }
+.main-progress-bar { height: 100%; background: #4cdf20; border-radius: 99px};
+/* Add these styles to src/pages/DashboardPage.css */
+
+/* --- Milestone Progress Card --- */
+.progress-card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+    color: black;
+}
+.progress-details {
+    margin-bottom: 0.75rem;
+    color:black
+}
+.progress-percent {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #334155; /* Dark color for visibility */
+}
+.main-progress-bar-container {
+    width: 100%;
+    height: 12px;
+    background-color: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+.main-progress-bar {
+    height: 100%;
+    background-color: #4cdf20;
+    border-radius: 999px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* --- Upcoming Milestones Table --- */
+.table-card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    color: black;
+}
+.no-data-message {
+    padding: 1rem;
+    color: #64748b; /* Dark color for visibility */
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155; /* Dark color for visibility */
+}
+th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #64748b;
+    font-weight: 600;
+}
+tbody tr:last-child td {
+    border-bottom: none;
+}
+.status-pill {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+}
+/* Styles for different statuses */
+.status-pill.not-started { background-color: #f1f5f9; color: #64748b; }
+.status-pill.in-progress { background-color: #fef9c3; color: #ca8a04; }
+.status-pill.completed { background-color: #dcfce7; color: #22c55e; }
+.status-pill.paid { background-color: #dcfce7; color: #22c55e; }
