@@ -506,3 +506,372 @@
 .confirm-checkbox:hover {
     color: #1e293b;
 }
+
+/* --- Additional AgroMonitoring Data Cards --- */
+
+/* UV Index Card */
+.uvi-card .uvi-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.uvi-level {
+    margin-top: 0.25rem;
+}
+
+/* Accumulated Data Card */
+.accumulated-card .accumulated-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Current Weather Details Card */
+.current-weather-card .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.weather-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background-color: #f8fafc;
+    border-radius: 0.75rem;
+}
+
+.weather-stat .material-symbols-outlined {
+    font-size: 1.5rem;
+    color: #64748b;
+}
+
+.weather-stat .stat-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.weather-stat .stat-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+}
+
+/* Image Toggle Buttons */
+.image-toggle {
+    display: flex;
+    gap: 0;
+}
+
+.image-toggle button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #cbd5e1;
+    background-color: #f8fafc;
+    color: #334155;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+.image-toggle button:first-child {
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.image-toggle button:last-child {
+    border-radius: 0 0.5rem 0.5rem 0;
+    border-left: none;
+}
+
+.image-toggle button.active {
+    background-color: #22c55e;
+    border-color: #22c55e;
+    color: white;
+}
+
+.image-toggle button:hover:not(.active) {
+    background-color: #e2e8f0;
+    border-color: #94a3b8;
+}
+
+/* --- Sentinel Hub Card Styles --- */
+.sentinel-card {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 1px solid #bae6fd;
+}
+
+.sentinel-card h3 {
+    color: #0369a1;
+}
+
+.sentinel-toggle {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}
+
+.sentinel-toggle button {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 0.375rem !important;
+    border: 1px solid #cbd5e1 !important;
+    background-color: #f8fafc;
+    color: #334155;
+    margin: 0;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.sentinel-toggle button:hover:not(.active) {
+    background-color: #e2e8f0;
+    border-color: #94a3b8 !important;
+}
+
+.sentinel-toggle button:first-child {
+    border-radius: 0.375rem !important;
+}
+
+.sentinel-toggle button:last-child {
+    border-radius: 0.375rem !important;
+    border-left: 1px solid #cbd5e1 !important;
+}
+
+.sentinel-toggle button.active {
+    background-color: #0284c7;
+    border-color: #0284c7 !important;
+    color: white;
+}
+
+.sentinel-subtitle {
+    margin-top: 0.5rem !important;
+    margin-bottom: 1rem !important;
+    font-style: italic;
+}
+
+/* Loading spinner in satellite placeholder */
+.satellite-placeholder .loader {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #0284c7;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 0.5rem;
+}
+
+/* Sentinel Statistics Container */
+.sentinel-stats-container {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.sentinel-stats-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0369a1;
+    margin-bottom: 1rem;
+}
+
+.sentinel-stats-title .material-symbols-outlined {
+    font-size: 1.25rem;
+}
+
+.sentinel-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+@media (max-width: 768px) {
+    .sentinel-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.stat-card {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card.ndvi-stat {
+    border-left: 4px solid #22c55e;
+}
+
+.stat-card.savi-stat {
+    border-left: 4px solid #84cc16;
+}
+
+.stat-card.moisture-stat {
+    border-left: 4px solid #3b82f6;
+}
+
+.stat-card.lai-stat {
+    border-left: 4px solid #8b5cf6;
+}
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stat-badge {
+    font-size: 0.625rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-range {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.stat-range span {
+    background: #f1f5f9;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+/* Vegetation Index Cards in Data Grid */
+.data-card.ndvi-card {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 1px solid #86efac;
+}
+
+.data-card.ndvi-card h3 {
+    color: #166534;
+}
+
+.data-card.lai-card {
+    background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+    border: 1px solid #d8b4fe;
+}
+
+.data-card.lai-card h3 {
+    color: #6b21a8;
+}
+
+.data-card.savi-card {
+    background: linear-gradient(135deg, #f7fee7 0%, #ecfccb 100%);
+    border: 1px solid #bef264;
+}
+
+.data-card.savi-card h3 {
+    color: #3f6212;
+}
+
+.data-card.moisture-card {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border: 1px solid #93c5fd;
+}
+
+.data-card.moisture-card h3 {
+    color: #1e40af;
+}
+
+.vegetation-stat-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.vegetation-main-value {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.veg-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1;
+}
+
+.veg-badge {
+    font-size: 0.625rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.veg-description {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.veg-range {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+}
+
+.veg-range span {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+/* Sentinel Hub Chart Cards */
+.sentinel-chart-card {
+    min-height: 300px;
+}
+
+.sentinel-chart-card h3 {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+}
+
+.sentinel-chart-card .card-subtitle {
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.sentinel-chart-card .chart-container {
+    height: 200px;
+}
